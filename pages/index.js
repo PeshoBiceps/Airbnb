@@ -19,7 +19,7 @@ export default function Home({ exploreData, cardData }) {
 
       <main className='max-w-7xl mx-auto px-8 sm:px-16' >
         <section className="pt-6">
-          <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
+          <h2 className="text-4xl font-semibold pb-5">Разгледайте околността</h2>
 
           {/* Pull some data form a server */}
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 '>
@@ -34,7 +34,7 @@ export default function Home({ exploreData, cardData }) {
           </div>
         </section>
         <section className="pt-6">
-          <h2 className="text-4xl font-semibold pb-5">Live Anywhere</h2>
+          <h2 className="text-4xl font-semibold pb-5">Живейте, където пожелаете</h2>
           <div className='flex space-x-5 overflow-scroll scrollbar-hide p-3 -ml-3'>
             {cardData?.map((data, index) => (
               <MediumCard
@@ -48,9 +48,9 @@ export default function Home({ exploreData, cardData }) {
 
         <LargeCard
           img='https://a0.muscache.com/im/pictures/2da67c1c-0c61-4629-8798-1d4de1ac9291.jpg?im_w=1440'
-          title='The Greatest Outdoors'
-          description='Wishlists curated by Airbnb'
-          buttonText='Get Inspired'
+          title='Опитайте да настанявате гости'
+          description='Осигурете си нови възможности и допълнителен доход, като предлагате място за престой.'
+          buttonText='Научете повече'
         />
 
       </main>
@@ -61,10 +61,10 @@ export default function Home({ exploreData, cardData }) {
 
 
 export async function getStaticProps() {
-  const exploreData = await fetch('https://jsonkeeper.com/b/4G1G').
+  const exploreData = await fetch('https://mecho-backend.herokuapp.com/explore').
     then((res) => res.json())
 
-  const cardData = await fetch('https://jsonkeeper.com/b/VHHT').
+  const cardData = await fetch('https://mecho-backend.herokuapp.com/card').
     then((res) => res.json())
 
   return {
