@@ -6,7 +6,7 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
-const Header = () => {
+const Header = ({ placeholder }) => {
 
   const [searchInput, setSearchInput] = useState('')
   const [startDate, setStartDate] = useState(new Date())
@@ -33,6 +33,7 @@ const Header = () => {
         no0fGuests,
       }
     })
+    setSearchInput('')
   }
 
   const selectionRange = {
@@ -59,13 +60,13 @@ const Header = () => {
 
       {/* Middle */}
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
-        <input value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className="flex-grow pl-5 bg-transparent outline-none text-gray-600 placeholder-gray-400" type="text" placeholder='Къде отивате?' />
+        <input value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className="flex-grow pl-5 bg-transparent outline-none text-gray-600 placeholder-gray-400" type="text" placeholder={placeholder || 'Къде отивате?'} />
         <SearchIcon style={searchInput ? { opacity: 0 } : { opacity: 1 }} className='hidden mx-2 md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer transition-all duration-400 ease-in' />
       </div>
 
       {/* Right */}
       <div className="flex items-center space-x-4 justify-end text-gray-500">
-        <p className="hidden md:inline-flex">Станете домакин</p>
+        <p className="hidden md:flex text-right">Станете домакин</p>
         <GlobeAltIcon className="h-6 md:cursor-pointer" />
 
         <div className="flex items-center space-x-2 border-2 p-2 rounded-full">

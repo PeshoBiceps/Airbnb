@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import LargeCard from '../components/LargeCard'
 import MediumCard from '../components/MediumCard'
 import SmallCard from '../components/SmallCard'
+import XlCard from '../components/XlCard'
 
 export default function Home({ exploreData, cardData }) {
   return (
@@ -52,6 +53,8 @@ export default function Home({ exploreData, cardData }) {
           description='Осигурете си нови възможности и допълнителен доход, като предлагате място за престой.'
           buttonText='Научете повече'
         />
+
+        <XlCard />
 
       </main>
       <Footer />
