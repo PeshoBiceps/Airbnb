@@ -2,11 +2,14 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { useRouter } from "next/dist/client/router"
 import { format } from "date-fns"
+import date from 'date-and-time';
 import InfoCard from "../components/InfoCard"
 
 const Search = ({ searchResult }) => {
   const router = useRouter()
   const { location, startDate, endDate, no0fGuests } = router.query
+
+
 
   console.log(searchResult)
   console.log(router.query)
@@ -14,6 +17,11 @@ const Search = ({ searchResult }) => {
   const formattedStartDate = format(new Date(startDate), 'dd MMMM yy')
   const formattedEndDate = format(new Date(endDate), 'dd MMMM yy')
   const range = `${formattedStartDate} - ${formattedEndDate}`
+
+  const value = date.subtract(new Date(router.query.endDate), new Date(router.query.startDate)).toDays()
+
+  console.log(value)
+
 
   return (
     <div>
@@ -42,6 +50,7 @@ const Search = ({ searchResult }) => {
                 description={data.description}
                 star={data.star}
                 price={data.price}
+                totalPrice={data.price * value}
               />
             ))}
           </div>
@@ -57,7 +66,7 @@ const Search = ({ searchResult }) => {
 export default Search
 
 export async function getServerSideProps(context) {
-  const searchResult = await fetch('https://jsonkeeper.com/b/5NPS').then(res => res.json())
+  const searchResult = await fetch('https://mecho-backend.herokuapp.com/search').then(res => res.json())
 
   return {
     props: {

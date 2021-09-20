@@ -2,7 +2,8 @@ import Image from 'next/image'
 import { HeartIcon } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
 
-const InfoCard = ({ img, location, title, description, star, price }) => {
+const InfoCard = ({ img, location, title, description, star, price, totalPrice }) => {
+
   return (
     <div className='flex py-7 px-2 pr-4 border-b md:cursor-pointer hover:opacity-90 hover:shadow-lg transition duration-200 ease-out first:border-t'>
       <div className='relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0'>
@@ -32,8 +33,8 @@ const InfoCard = ({ img, location, title, description, star, price }) => {
 
 
           <div>
-            <p className='text-lg font-semibold pb-2 lg:text-2xl'>{price}</p>
-            <p className='text-right font-extralight '>12312</p>
+            <p className='text-lg font-semibold pb-2 lg:text-2xl'>{price} лв./ нощувка</p>
+            <p className='text-right font-extralight'>Общо {totalPrice} лв.</p>
           </div>
 
         </div>

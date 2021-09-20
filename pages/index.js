@@ -64,10 +64,10 @@ export default function Home({ exploreData, cardData }) {
 
 
 export async function getStaticProps() {
-  const exploreData = await fetch('https://mecho-backend.herokuapp.com/explore').
+  const exploreData = await fetch('https://mecho-backend.herokuapp.com/api/explore').
     then((res) => res.json())
 
-  const cardData = await fetch('https://mecho-backend.herokuapp.com/card').
+  const cardData = await fetch('https://mecho-backend.herokuapp.com/api/card').
     then((res) => res.json())
 
   return {
