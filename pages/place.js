@@ -4,6 +4,7 @@ import { useRouter } from "next/dist/client/router"
 import { format } from "date-fns"
 import date from 'date-and-time';
 import InfoCard from "../components/InfoCard"
+import Map from "../components/Map";
 
 const Place = ({ searchResult }) => {
 
@@ -19,7 +20,7 @@ const Place = ({ searchResult }) => {
   return (
     <div>
       <Header placeholder={`${location} | ${range} | ${no0fGuests}`} />
-      <main>
+      <main className='flex'>
         <section className='flex-grow pt-14 px-6'>
           <p className='text-xs'>300+ Нощувки нощувки за | {range} | {no0fGuests}  {no0fGuests === "1" ? `гост` : "гости"}</p>
 
@@ -48,6 +49,10 @@ const Place = ({ searchResult }) => {
             ))}
           </div>
 
+        </section>
+
+        <section className='hidden xl:inline-flex xl:min-w-[600px]'>
+          <Map searchResult={searchResult} />
         </section>
 
       </main>
