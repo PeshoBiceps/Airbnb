@@ -5,30 +5,23 @@ import { format } from "date-fns"
 import date from 'date-and-time';
 import InfoCard from "../components/InfoCard"
 
-const Search = ({ searchResult }) => {
+const Place = ({ searchResult }) => {
+
   const router = useRouter()
   const { location, startDate, endDate, no0fGuests } = router.query
 
-
-
-  console.log(searchResult)
-  console.log(router.query)
-
-  const formattedStartDate = format(new Date(startDate), 'dd MMMM yy')
-  const formattedEndDate = format(new Date(endDate), 'dd MMMM yy')
+  const formattedStartDate = format(new Date(startDate), 'dd MMMM')
+  const formattedEndDate = format(new Date(endDate), 'dd MMMM')
   const range = `${formattedStartDate} - ${formattedEndDate}`
 
   const value = date.subtract(new Date(router.query.endDate), new Date(router.query.startDate)).toDays()
-
-  console.log(value)
-
 
   return (
     <div>
       <Header placeholder={`${location} | ${range} | ${no0fGuests}`} />
       <main>
         <section className='flex-grow pt-14 px-6'>
-          <p className='text-xs'>300+ Нощувки {range} нощувки за {no0fGuests} {no0fGuests === "1" ? `гост` : "гости"}</p>
+          <p className='text-xs'>300+ Нощувки нощувки за | {range} | {no0fGuests}  {no0fGuests === "1" ? `гост` : "гости"}</p>
 
           <h1 className='text-3xl font-semibold mt-2 mb-6'>Места за престой в района на {location}</h1>
 
@@ -63,10 +56,12 @@ const Search = ({ searchResult }) => {
   )
 }
 
-export default Search
+export default Place
 
-export async function getServerSideProps(context) {
-  const searchResult = await fetch('https://mecho-backend.herokuapp.com/search').then(res => res.json())
+export async function getServerSideProps() {
+
+  const searchResult = await fetch(`https://mecho-backend.herokuapp.com/place`)
+    .then(res => res.json())
 
   return {
     props: {

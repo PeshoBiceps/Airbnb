@@ -23,9 +23,9 @@ const Header = ({ placeholder }) => {
     setSearchInput('')
   }
 
-  const search = () => {
+  const place = () => {
     router.push({
-      pathname: '/search',
+      pathname: `/place`,
       query: {
         location: searchInput,
         startDate: startDate.toISOString(),
@@ -89,7 +89,7 @@ const Header = ({ placeholder }) => {
           </div>
           <div className='flex items-center'>
             <button onClick={resetInput} className='flex-grow text-gray-500'>Отказ</button>
-            <button onClick={search} className='flex-grow text-red-400'>Търси</button>
+            <button onClick={place} className='flex-grow text-red-400'>Търси</button>
           </div>
         </div>
       )}
