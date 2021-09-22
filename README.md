@@ -18,9 +18,9 @@ It was created with Next JS, Tailwind, Node, Express, MongoDB.
 
 ### Backend API
 
--Node
--Express
--MongoDB
+- Node
+- Express
+- MongoDB
 
 ## License
 
