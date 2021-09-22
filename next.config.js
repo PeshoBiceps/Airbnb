@@ -5,4 +5,8 @@ module.exports = {
   env: {
     mapbox_key: 'pk.eyJ1IjoicGVzaG93d3ciLCJhIjoiY2t0dWl6d2o4MWFnazMycWVoa2V3eGtleCJ9.7PjZp4m7ahjCYoDufRj9og'
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> cdab7a8b52ec768632667af96b827ef0ab392167
