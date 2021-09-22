@@ -19,7 +19,7 @@ const Place = ({ searchResult }) => {
 
   return (
     <div>
-      <Header placeholder={`${location} | ${range} | ${no0fGuests}`} />
+      <Header placeholder={`${location}`} />
       <main className='flex'>
         <section className='flex-grow pt-14 px-6'>
           <p className='text-xs'>300+ Нощувки нощувки за | {range} | {no0fGuests}  {no0fGuests === "1" ? `гост` : "гости"}</p>
