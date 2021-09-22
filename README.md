@@ -2,6 +2,8 @@
 
 This project is a airbnb clone.
 
+THIS IS THE FRONTEND PART ONLY!!!
+
 It was created with Next JS, Tailwind, Node, Express, MongoDB.
 
 ![example-site](https://raw.githubusercontent.com/PeshoBiceps/Airbnb/main/air1.jpg)
